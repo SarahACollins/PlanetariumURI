@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+  <title>Sample Page Using Digistar Web Interface</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="script" http-equiv="Content-Script-Type" content="text/javascript" />
+  <meta name="script" http-equiv="Content-Style-Type" content="text/css" />
+
+  <!-- This sets the default icon for an Apple mobile device -->
+  <link rel="apple-touch-icon" href="/digistar/config/host/web/D5iPad.png"/>
+
+  <!-- This sets the default icon for Internet Explorer-->
+  <link rel="shortcut icon" href="/digistar/config/host/web/Digistar5.ico" />
+
+  <!-- This sets the width for the content, on a mobile device, use width=device-width to match the mobile device's width -->
+  <meta name="viewport" content="width=200; initial-scale=1.0;" />
+
+      <script type="text/javascript" src="/digistar/Config/Host/web/Digistar.js"></script>
+
+  <script type="text/javascript">
+    Event.add(window, 'load', function()
+    {
+      ...
+    }); 
+    </script>
+</head>
+
+<body style="background-color:black; size:auto">
+  <div id="mainCanvas">     
+  </div>
+  <!-- This example shows sending a command using the web interface 
+    directly and a link, no scripting needed. The empty frame is needed
+    to have a place to load the XML response. -->
+  <a href="/digistar/execute?command=dome%20color%20green" target="emptyframe">Make Dome Green</a>
+  <iframe name="emptyframe" id="emptyframe" style="width:0px;height:0px;border-width:0px"></iframe>
+    <!-- This example shows building your own 'button' with just HTML, 
+      and executing a Digistar command when clicked -->
+  <div id="Div1" style="background-color:#CCCCCC; color:Black; width:100px; height:20px;cursor:pointer;"
+    onclick="Ds.Web.SendStringCommand('eye attitude rate 5 5 5 dur 2'); ">
+    <b>Rotate Eye</b>
+  </div>
+</body>
+</html>
